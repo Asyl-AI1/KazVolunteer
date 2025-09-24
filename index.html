@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KazVolunteer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a202c;
+            background-color: #f7fafc;
+        }
+        .hero-bg {
+            background-image: url('https://img.freepik.com/free-vector/watercolor-international-human-solidarity-day-background_23-2149837203.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .filter-btn.active {
+            background-color: #2563eb;
+            color: white;
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full z-50 bg-white bg-opacity-90 backdrop-blur-sm shadow-md py-4 px-6 md:px-12 transition-all duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-gray-800 tracking-tight" data-i18n="kazVolunteer">KazVolunteer</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#hero" class="text-gray-600 hover:text-blue-600 transition-colors" data-i18n="home">Home</a>
+                <a href="#why-volunteer" class="text-gray-600 hover:text-blue-600 transition-colors" data-i18n="whyVolunteer">Why Volunteer</a>
+                <a href="#regions" class="text-gray-600 hover:text-blue-600 transition-colors" data-i18n="regions">Regions</a>
+                <a href="#projects" class="text-gray-600 hover:text-blue-600 transition-colors" data-i18n="projects">Projects</a>
+                <a href="#apply" class="text-gray-600 hover:text-blue-600 transition-colors" data-i18n="apply">Apply</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors" data-i18n="contact">Contact</a>
+                <div class="flex items-center space-x-2 ml-4">
+                    <button class="lang-btn font-semibold text-gray-600" data-lang="en">EN</button>
+                    <button class="lang-btn text-gray-400 hover:text-blue-600 transition-colors" data-lang="ru">RU</button>
+                    <button class="lang-btn text-gray-400 hover:text-blue-600 transition-colors" data-lang="kz">KZ</button>
+                </div>
+            </nav>
+            <button id="menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 text-center">
+            <a href="#hero" class="block py-2 text-gray-600 hover:text-blue-600" data-i18n="home">Home</a>
+            <a href="#why-volunteer" class="block py-2 text-gray-600 hover:text-blue-600" data-i18n="whyVolunteer">Why Volunteer</a>
+            <a href="#regions" class="block py-2 text-gray-600 hover:text-blue-600" data-i18n="regions">Regions</a>
+            <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600" data-i18n="projects">Projects</a>
+            <a href="#apply" class="block py-2 text-gray-600 hover:text-blue-600" data-i18n="apply">Apply</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600" data-i18n="contact">Contact</a>
+            <div class="flex justify-center space-x-2 pt-2">
+                <button class="lang-btn font-semibold text-gray-600" data-lang="en">EN</button>
+                <button class="lang-btn text-gray-400 hover:text-blue-600" data-lang="ru">RU</button>
+                <button class="lang-btn text-gray-400 hover:text-blue-600" data-lang="kz">KZ</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-bg text-white h-screen flex flex-col justify-center items-center text-center p-6" role="banner" aria-label="KazVolunteer Hero Section">
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg" data-i18n="heroTitle">Join us to make the world more amazing</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light drop-shadow-lg max-w-2xl mx-auto" data-i18n="heroSubtitle">Connect with like-minded people, discover new places, and help build a brighter future for communities across Kazakhstan.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
+                    <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105" data-i18n="findProjects">Find Projects</a>
+                    <a href="#apply" class="bg-white text-blue-600 hover:text-blue-700 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105" data-i18n="applyBtn">Apply</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Volunteer Section -->
+        <section id="why-volunteer" class="py-16 md:py-24 bg-white" aria-labelledby="why-volunteer-heading">
+            <div class="container mx-auto px-6 lg:px-12">
+                <h2 id="why-volunteer-heading" class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800" data-i18n="whyVolunteerHeading">Why Volunteer with Us?</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="card p-8 rounded-xl shadow-lg bg-gray-50 flex flex-col items-center text-center">
+                        <i class="fas fa-handshake text-5xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="gainExperienceTitle">Gain Experience</h3>
+                        <p class="text-gray-600" data-i18n="gainExperienceText">Acquire valuable skills and build your professional portfolio while contributing to meaningful work.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card p-8 rounded-xl shadow-lg bg-gray-50 flex flex-col items-center text-center">
+                        <i class="fas fa-hands-helping text-5xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="helpCommunitiesTitle">Help Communities</h3>
+                        <p class="text-gray-600" data-i18n="helpCommunitiesText">Make a real difference in people's lives by addressing social, environmental, and cultural needs.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card p-8 rounded-xl shadow-lg bg-gray-50 flex flex-col items-center text-center">
+                        <i class="fas fa-globe-asia text-5xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="culturalExchangeTitle">Cultural Exchange</h3>
+                        <p class="text-gray-600" data-i18n="culturalExchangeText">Immerse yourself in Kazakh culture, learn local customs, and share your own traditions with others.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="card p-8 rounded-xl shadow-lg bg-gray-50 flex flex-col items-center text-center">
+                        <i class="fas fa-users text-5xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="buildNetworkTitle">Build a Network</h3>
+                        <p class="text-gray-600" data-i18n="buildNetworkText">Meet fellow volunteers and local leaders, forging friendships and professional connections for life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discover Regions Section -->
+        <section id="regions" class="py-16 md:py-24 bg-gray-100" aria-labelledby="regions-heading">
+            <div class="container mx-auto px-6 lg:px-12">
+                <h2 id="regions-heading" class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800" data-i18n="discoverRegionsHeading">Discover Regions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Akmola Card -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Borovoe4.jpg/1200px-Borovoe4.jpg" alt="Akmola region with lakes and forests" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="akmolaTitle">Akmola</h3>
+                            <p class="text-gray-600" data-i18n="akmolaText">Known as the "Kazakh Switzerland" for its stunning natural beauty, including lakes and mountains.</p>
+                        </div>
+                    </div>
+                    <!-- Almaty Card -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://kalpak-travel.com/wp-content/uploads/2018/05/almaty-1-1024x683.jpg" alt="Almaty, Kazakhstan city view with mountains in the background" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="almatyTitle">Almaty</h3>
+                            <p class="text-gray-600" data-i18n="almatyText">The bustling cultural and commercial hub, surrounded by the stunning Zailiysky Alatau mountains.</p>
+                        </div>
+                    </div>
+                    <!-- Astana Card -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://vegantravellife.com/wp-content/uploads/2016/07/Astana.jpg" alt="Futuristic cityscape of Astana, Kazakhstan with modern architecture" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="astanaTitle">Astana</h3>
+                            <p class="text-gray-600" data-i18n="astanaText">Kazakhstan’s futuristic capital, known for its unique, modern architecture and vibrant city life.</p>
+                        </div>
+                    </div>
+                    <!-- East Kazakhstan Card -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Kazakhstan_Altay_2.jpg" alt="Majestic landscape of East Kazakhstan, with mountains and forests" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="eastKzTitle">East Kazakhstan</h3>
+                            <p class="text-gray-600" data-i18n="eastKzText">Home to the majestic Altai Mountains, offering breathtaking landscapes and untouched nature.</p>
+                        </div>
+                    </div>
+                    <!-- South Kazakhstan Card -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Karla_Marksa%2C_Kazakhstan_-_panoramio.jpg" alt="Ancient ruins in South Kazakhstan, a historical site" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="southKzTitle">South Kazakhstan</h3>
+                            <p class="text-gray-600" data-i18n="southKzText">A region rich in history, ancient cities, and warm, welcoming communities.</p>
+                        </div>
+                    </div>
+                    <!-- West Kazakhstan Card -->
+                    <div class="card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img src="https://trvlland.com/wp-content/uploads/2022/09/kazakhstan_mangyshlak_peninsula-scaled.jpg" alt="Vast desert and canyon landscape in West Kazakhstan" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-700" data-i18n="westKzTitle">West Kazakhstan</h3>
+                            <p class="text-gray-600" data-i18n="westKzText">A unique landscape of vast deserts and a strategic location on the Caspian Sea.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="py-16 md:py-24 bg-white" aria-labelledby="projects-heading">
+            <div class="container mx-auto px-6 lg:px-12">
+                <h2 id="projects-heading" class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800" data-i18n="featuredProjectsHeading">Featured Projects</h2>
+                
+                <!-- Filter Section -->
+                <div class="mb-12 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
+                        <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 active" data-filter="all" data-i18n="all">All</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200" data-filter="Ecology" data-i18n="ecology">Ecology</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200" data-filter="Education" data-i18n="education">Education</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200" data-filter="Social" data-i18n="social">Social</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200" data-filter="Cultural" data-i18n="cultural">Cultural</button>
+                    </div>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <select id="region-filter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all" data-i18n="allRegions">All Regions</option>
+                            <option value="Akmola" data-i18n="akmola">Akmola</option>
+                            <option value="Almaty" data-i18n="almaty">Almaty</option>
+                            <option value="Astana" data-i18n="astana">Astana</option>
+                            <option value="East Kazakhstan" data-i18n="eastKz">East Kazakhstan</option>
+                            <option value="South Kazakhstan" data-i18n="southKz">South Kazakhstan</option>
+                            <option value="West Kazakhstan" data-i18n="westKz">West Kazakhstan</option>
+                        </select>
+                        <select id="duration-filter" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all" data-i18n="allDurations">All Durations</option>
+                            <option value="Short <1 week" data-i18n="shortDuration">Short &lt;1 week</option>
+                            <option value="1-4 weeks" data-i18n="mediumDuration">1-4 weeks</option>
+                            <option value="1+ months" data-i18n="longDuration">1+ months</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Project Akmola -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Ecology" data-region="Akmola" data-duration="Short <1 week">
+                        <div>
+                            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="ecology">Ecology</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="akmolaProjectTitle">Burabay National Park Cleanup</h3>
+                            <p class="text-sm text-gray-600" data-i18n="akmolaProjectDesc">Help preserve the natural beauty of one of Kazakhstan's most famous national parks by assisting with cleanup efforts and trail maintenance.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="akmola">Akmola</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="shortDuration">Short &lt;1 week</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 1 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Ecology" data-region="Almaty" data-duration="Short <1 week">
+                        <div>
+                            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="ecology">Ecology</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="cleanMountainsTitle">Clean Mountains Project</h3>
+                            <p class="text-sm text-gray-600" data-i18n="cleanMountainsDesc">Join us for a weekend to clean up mountain trails and preserve the pristine beauty of nature.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="almaty">Almaty</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="shortDuration">Short &lt;1 week</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Education" data-region="East Kazakhstan" data-duration="1-4 weeks">
+                        <div>
+                            <span class="bg-indigo-200 text-indigo-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="education">Education</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="mentoringTitle">Mentoring Future Leaders</h3>
+                            <p class="text-sm text-gray-600" data-i18n="mentoringDesc">Help young students in remote areas with their homework and career development, inspiring the next generation.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="eastKz">East Kazakhstan</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="mediumDuration">1-4 weeks</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Social" data-region="Astana" data-duration="Short <1 week">
+                        <div>
+                            <span class="bg-red-200 text-red-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="social">Social</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="kitchenTitle">Community Kitchen Support</h3>
+                            <p class="text-sm text-gray-600" data-i18n="kitchenDesc">Serve warm meals and provide assistance at local soup kitchens to help those in need in the city.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="astana">Astana</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="shortDuration">Short &lt;1 week</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Cultural" data-region="South Kazakhstan" data-duration="Short <1 week">
+                        <div>
+                            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="cultural">Cultural</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="festivalTitle">Art & Heritage Festival</h3>
+                            <p class="text-sm text-gray-600" data-i18n="festivalDesc">Assist with event setup and guiding tourists during a week-long cultural festival celebrating Kazakh heritage.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="southKz">South Kazakhstan</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="shortDuration">Short &lt;1 week</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Ecology" data-region="West Kazakhstan" data-duration="1+ months">
+                        <div>
+                            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="ecology">Ecology</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="steppeTitle">Steppe Tree Planting</h3>
+                            <p class="text-sm text-gray-600" data-i18n="steppeDesc">Participate in a long-term reforestation project to combat desertification and promote biodiversity.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="westKz">West Kazakhstan</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="longDuration">1+ months</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Education" data-region="Almaty" data-duration="1-4 weeks">
+                        <div>
+                            <span class="bg-indigo-200 text-indigo-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="education">Education</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="englishCampTitle">English Language Camp</h3>
+                            <p class="text-sm text-gray-600" data-i18n="englishCampDesc">Help local students improve their English speaking skills through fun, interactive camp activities.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="almaty">Almaty</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="mediumDuration">1-4 weeks</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 7 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Social" data-region="East Kazakhstan" data-duration="1+ months">
+                        <div>
+                            <span class="bg-red-200 text-red-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="social">Social</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="elderlyCareTitle">Elderly Care Support</h3>
+                            <p class="text-sm text-gray-600" data-i18n="elderlyCareDesc">Provide companionship and assistance to elderly residents in a local care facility. A heart-warming experience.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="eastKz">East Kazakhstan</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="longDuration">1+ months</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Project 8 -->
+                    <div class="project-card card bg-gray-50 rounded-xl shadow-md p-6 flex flex-col justify-between" data-category="Cultural" data-region="Astana" data-duration="Short <1 week">
+                        <div>
+                            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-full" data-i18n="cultural">Cultural</span>
+                            <h3 class="project-title text-xl font-semibold my-2 text-gray-800" data-i18n="museumTitle">Museum Exhibit Guide</h3>
+                            <p class="text-sm text-gray-600" data-i18n="museumDesc">Share the history and significance of Kazakh artifacts with visitors at a major national museum.</p>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-500 space-y-1">
+                            <p><i class="fas fa-map-marker-alt mr-2"></i><span class="project-region" data-i18n="astana">Astana</span></p>
+                            <p><i class="fas fa-clock mr-2"></i><span class="project-duration" data-i18n="shortDuration">Short &lt;1 week</span></p>
+                            <button class="apply-btn mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full transition duration-300 hover:bg-blue-700" data-i18n="applyNow">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apply Section -->
+        <section id="apply" class="py-16 md:py-24 bg-gray-100" aria-labelledby="apply-heading">
+            <div class="container mx-auto px-6 lg:px-12 max-w-2xl">
+                <h2 id="apply-heading" class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800" data-i18n="applyHeading">Apply to Volunteer</h2>
+                <div id="success-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">
+                    <strong class="font-bold" data-i18n="success">Success!</strong>
+                    <span class="block sm:inline" data-i18n="applicationSubmitted">Your application has been submitted. Thank you for your interest!</span>
+                </div>
+                <form id="apply-form" class="bg-white rounded-xl shadow-lg p-8 space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 font-semibold mb-2" data-i18n="name">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" data-i18n-placeholder="yourNamePlaceholder" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-semibold mb-2" data-i18n="email">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" data-i18n-placeholder="emailPlaceholder" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-semibold mb-2" data-i18n="phone">Phone (Optional)</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" data-i18n-placeholder="phonePlaceholder">
+                    </div>
+                    <div>
+                        <label for="language" class="block text-gray-700 font-semibold mb-2" data-i18n="preferredLanguage">Preferred Language</label>
+                        <select id="language" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option data-i18n="english">English</option>
+                            <option data-i18n="russian">Русский</option>
+                            <option data-i18n="kazakh">Қазақша</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="region" class="block text-gray-700 font-semibold mb-2" data-i18n="region">Region</label>
+                        <select id="region" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option data-i18n="selectRegion">Select a Region</option>
+                            <option data-i18n="akmola">Akmola</option>
+                            <option data-i18n="almaty">Almaty</option>
+                            <option data-i18n="astana">Astana</option>
+                            <option data-i18n="eastKz">East Kazakhstan</option>
+                            <option data-i18n="southKz">South Kazakhstan</option>
+                            <option data-i18n="westKz">West Kazakhstan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="project" class="block text-gray-700 font-semibold mb-2" data-i18n="project">Project</label>
+                        <input type="text" id="project" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" data-i18n-placeholder="projectPlaceholder">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-semibold mb-2" data-i18n="message">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" data-i18n-placeholder="messagePlaceholder"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 hover:bg-blue-700" data-i18n="sendApplication">Send Application</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12 px-6 md:px-12" role="contentinfo" aria-label="Website Footer">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div class="col-span-1 md:col-span-2">
+                <h4 class="text-xl font-semibold mb-4 text-white" data-i18n="aboutKazVolunteer">About KazVolunteer</h4>
+                <p data-i18n="aboutText">Connecting passionate volunteers with impactful projects across Kazakhstan. Join our mission to build a better community.</p>
+            </div>
+            <!-- Contact Section -->
+            <div>
+                <h4 class="text-xl font-semibold mb-4 text-white" data-i18n="contactUs">Contact Us</h4>
+                <ul class="space-y-2">
+                    <li><i class="fas fa-envelope mr-2"></i><span data-i18n="emailContact">Email: KazVolunteering@gmail.com</span></li>
+                    <li><i class="fab fa-telegram-plane mr-2"></i><span data-i18n="telegram">Telegram:</span> <a href="https://t.me/KazVolunteering" target="_blank" class="hover:text-blue-400">https://t.me/KazVolunteering</a></li>
+                    <li><i class="fab fa-whatsapp mr-2"></i><span data-i18n="whatsapp">WhatsApp:</span> +77058076912</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-sm text-gray-500 border-t border-gray-700 pt-8 mt-8" data-i18n="copyright">
+            © 2024 KazVolunteer. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Language data
+        const languageData = {
+            en: {
+                home: 'Home',
+                whyVolunteer: 'Why Volunteer',
+                regions: 'Regions',
+                projects: 'Projects',
+                apply: 'Apply',
+                contact: 'Contact',
+                heroTitle: 'Join us to make the world more amazing',
+                heroSubtitle: 'Connect with like-minded people, discover new places, and help build a brighter future for communities across Kazakhstan.',
+                findProjects: 'Find Projects',
+                applyBtn: 'Apply',
+                whyVolunteerHeading: 'Why Volunteer with Us?',
+                gainExperienceTitle: 'Gain Experience',
+                gainExperienceText: 'Acquire valuable skills and build your professional portfolio while contributing to meaningful work.',
+                helpCommunitiesTitle: 'Help Communities',
+                helpCommunitiesText: 'Make a real difference in people\'s lives by addressing social, environmental, and cultural needs.',
+                culturalExchangeTitle: 'Cultural Exchange',
+                culturalExchangeText: 'Immerse yourself in Kazakh culture, learn local customs, and share your own traditions with others.',
+                buildNetworkTitle: 'Build a Network',
+                buildNetworkText: 'Meet fellow volunteers and local leaders, forging friendships and professional connections for life.',
+                discoverRegionsHeading: 'Discover Regions',
+                akmolaTitle: 'Akmola',
+                akmolaText: 'Known as the "Kazakh Switzerland" for its stunning natural beauty, including lakes and mountains.',
+                almatyTitle: 'Almaty',
+                almatyText: 'The bustling cultural and commercial hub, surrounded by the stunning Zailiysky Alatau mountains.',
+                astanaTitle: 'Astana',
+                astanaText: 'Kazakhstan’s futuristic capital, known for its unique, modern architecture and vibrant city life.',
+                eastKzTitle: 'East Kazakhstan',
+                eastKzText: 'Home to the majestic Altai Mountains, offering breathtaking landscapes and untouched nature.',
+                southKzTitle: 'South Kazakhstan',
+                southKzText: 'A region rich in history, ancient cities, and warm, welcoming communities.',
+                westKzTitle: 'West Kazakhstan',
+                westKzText: 'A unique landscape of vast deserts and a strategic location on the Caspian Sea.',
+                featuredProjectsHeading: 'Featured Projects',
+                all: 'All',
+                ecology: 'Ecology',
+                education: 'Education',
+                social: 'Social',
+                cultural: 'Cultural',
+                allRegions: 'All Regions',
+                allDurations: 'All Durations',
+                shortDuration: 'Short <1 week',
+                mediumDuration: '1-4 weeks',
+                longDuration: '1+ months',
+                akmolaProjectTitle: 'Burabay National Park Cleanup',
+                akmolaProjectDesc: 'Help preserve the natural beauty of one of Kazakhstan\'s most famous national parks by assisting with cleanup efforts and trail maintenance.',
+                cleanMountainsTitle: 'Clean Mountains Project',
+                cleanMountainsDesc: 'Join us for a weekend to clean up mountain trails and preserve the pristine beauty of nature.',
+                mentoringTitle: 'Mentoring Future Leaders',
+                mentoringDesc: 'Help young students in remote areas with their homework and career development, inspiring the next generation.',
+                kitchenTitle: 'Community Kitchen Support',
+                kitchenDesc: 'Serve warm meals and provide assistance at local soup kitchens to help those in need in the city.',
+                festivalTitle: 'Art & Heritage Festival',
+                festivalDesc: 'Assist with event setup and guiding tourists during a week-long cultural festival celebrating Kazakh heritage.',
+                steppeTitle: 'Steppe Tree Planting',
+                steppeDesc: 'Participate in a long-term reforestation project to combat desertification and promote biodiversity.',
+                englishCampTitle: 'English Language Camp',
+                englishCampDesc: 'Help local students improve their English speaking skills through fun, interactive camp activities.',
+                elderlyCareTitle: 'Elderly Care Support',
+                elderlyCareDesc: 'Provide companionship and assistance to elderly residents in a local care facility. A heart-warming experience.',
+                museumTitle: 'Museum Exhibit Guide',
+                museumDesc: 'Share the history and significance of Kazakh artifacts with visitors at a major national museum.',
+                applyHeading: 'Apply to Volunteer',
+                name: 'Name',
+                email: 'Email',
+                phone: 'Phone (Optional)',
+                preferredLanguage: 'Preferred Language',
+                region: 'Region',
+                project: 'Project',
+                message: 'Message',
+                sendApplication: 'Send Application',
+                success: 'Success!',
+                applicationSubmitted: 'Your application has been submitted. Thank you for your interest!',
+                aboutKazVolunteer: 'About KazVolunteer',
+                aboutText: 'Connecting passionate volunteers with impactful projects across Kazakhstan. Join our mission to build a better community.',
+                contactUs: 'Contact Us',
+                emailContact: 'Email: KazVolunteering@gmail.com',
+                telegram: 'Telegram:',
+                whatsapp: 'WhatsApp:',
+                copyright: '© 2024 KazVolunteer. All rights reserved.',
+                yourNamePlaceholder: 'Your Name',
+                emailPlaceholder: 'your.email@example.com',
+                phonePlaceholder: '+7 (XXX) XXX XX XX',
+                projectPlaceholder: 'e.g. Clean Mountains Project',
+                messagePlaceholder: 'Tell us about yourself and why you want to volunteer.',
+                selectRegion: 'Select a Region',
+                kazVolunteer: 'KazVolunteer'
+            },
+            ru: {
+                home: 'Главная',
+                whyVolunteer: 'Почему волонтер',
+                regions: 'Регионы',
+                projects: 'Проекты',
+                apply: 'Подать заявку',
+                contact: 'Контакты',
+                heroTitle: 'Присоединяйтесь к нам, чтобы сделать мир более удивительным',
+                heroSubtitle: 'Общайтесь с единомышленниками, открывайте для себя новые места и помогайте строить светлое будущее для сообществ по всему Казахстану.',
+                findProjects: 'Найти проекты',
+                applyBtn: 'Подать заявку',
+                whyVolunteerHeading: 'Почему волонтерство с нами?',
+                gainExperienceTitle: 'Получить опыт',
+                gainExperienceText: 'Приобретайте ценные навыки и создавайте свое профессиональное портфолио, внося вклад в значимую работу.',
+                helpCommunitiesTitle: 'Помощь сообществам',
+                helpCommunitiesText: 'Окажите реальную помощь в жизни людей, решая социальные, экологические и культурные проблемы.',
+                culturalExchangeTitle: 'Культурный обмен',
+                culturalExchangeText: 'Погрузитесь в казахскую культуру, изучите местные обычаи и поделитесь своими традициями с другими.',
+                buildNetworkTitle: 'Создать сеть контактов',
+                buildNetworkText: 'Встречайтесь с другими волонтерами и местными лидерами, заводите дружеские и профессиональные связи на всю жизнь.',
+                discoverRegionsHeading: 'Откройте для себя регионы',
+                akmolaTitle: 'Акмола',
+                akmolaText: 'Известна как "Казахская Швейцария" за ее потрясающую природную красоту, включая озера и горы.',
+                almatyTitle: 'Алматы',
+                almatyText: 'Оживленный культурный и коммерческий центр, окруженный потрясающими горами Заилийского Алатау.',
+                astanaTitle: 'Астана',
+                astanaText: 'Футуристическая столица Казахстана, известная своей уникальной, современной архитектурой и яркой городской жизнью.',
+                eastKzTitle: 'Восточный Казахстан',
+                eastKzText: 'Родина величественных Алтайских гор, предлагающая захватывающие пейзажи и нетронутую природу.',
+                southKzTitle: 'Южный Казахстан',
+                southKzText: 'Регион, богатый историей, древними городами и теплыми, гостеприимными сообществами.',
+                westKzTitle: 'Западный Казахстан',
+                westKzText: 'Уникальный ландшафт обширных пустынь и стратегическое расположение на Каспийском море.',
+                featuredProjectsHeading: 'Избранные проекты',
+                all: 'Все',
+                ecology: 'Экология',
+                education: 'Образование',
+                social: 'Социальные',
+                cultural: 'Культурные',
+                allRegions: 'Все регионы',
+                allDurations: 'Все продолжительности',
+                shortDuration: 'Короткие <1 нед',
+                mediumDuration: '1-4 недели',
+                longDuration: '1+ месяцев',
+                akmolaProjectTitle: 'Уборка национального парка Бурабай',
+                akmolaProjectDesc: 'Помогите сохранить природную красоту одного из самых известных национальных парков Казахстана, участвуя в уборке и уходе за тропами.',
+                cleanMountainsTitle: 'Проект «Чистые горы»',
+                cleanMountainsDesc: 'Присоединяйтесь к нам на выходные, чтобы убрать горные тропы и сохранить первозданную красоту природы.',
+                mentoringTitle: 'Наставничество для будущих лидеров',
+                mentoringDesc: 'Помогайте молодым ученикам в отдаленных районах с домашними заданиями и развитием карьеры, вдохновляя следующее поколение.',
+                kitchenTitle: 'Поддержка общественной кухни',
+                kitchenDesc: 'Подавайте горячие блюда и оказывайте помощь в местных суповых кухнях, чтобы помочь нуждающимся в городе.',
+                festivalTitle: 'Фестиваль искусства и наследия',
+                festivalDesc: 'Помощь в организации мероприятия и сопровождение туристов во время недельного культурного фестиваля, посвященного казахскому наследию.',
+                steppeTitle: 'Посадка деревьев в степи',
+                steppeDesc: 'Участвуйте в долгосрочном проекте по лесовосстановлению для борьбы с опустыниванием и содействия биоразнообразию.',
+                englishCampTitle: 'Лагерь английского языка',
+                englishCampDesc: 'Помогите местным студентам улучшить свои навыки владения английским языком с помощью веселых, интерактивных занятий в лагере.',
+                elderlyCareTitle: 'Помощь пожилым людям',
+                elderlyCareDesc: 'Окажите поддержку и помощь пожилым жителям в местном учреждении по уходу. Душевный опыт.',
+                museumTitle: 'Гид по музейной экспозиции',
+                museumDesc: 'Делитесь историей и значимостью казахских артефактов с посетителями крупного национального музея.',
+                applyHeading: 'Подать заявку на волонтерство',
+                name: 'Имя',
+                email: 'Электронная почта',
+                phone: 'Телефон (необязательно)',
+                preferredLanguage: 'Предпочитаемый язык',
+                region: 'Регион',
+                project: 'Проект',
+                message: 'Сообщение',
+                sendApplication: 'Отправить заявку',
+                success: 'Успех!',
+                applicationSubmitted: 'Ваша заявка была отправлена. Спасибо за ваш интерес!',
+                aboutKazVolunteer: 'О KazVolunteer',
+                aboutText: 'Объединяем страстных волонтеров с значимыми проектами по всему Казахстану. Присоединяйтесь к нашей миссии по созданию лучшего сообщества.',
+                contactUs: 'Связаться с нами',
+                emailContact: 'Электронная почта: KazVolunteering@gmail.com',
+                telegram: 'Телеграм:',
+                whatsapp: 'WhatsApp:',
+                copyright: '© 2024 KazVolunteer. Все права защищены.',
+                yourNamePlaceholder: 'Ваше имя',
+                emailPlaceholder: 'your.email@example.com',
+                phonePlaceholder: '+7 (XXX) XXX XX XX',
+                projectPlaceholder: 'Напр. Проект «Чистые горы»',
+                messagePlaceholder: 'Расскажите о себе и почему вы хотите стать волонтером.',
+                selectRegion: 'Выберите регион',
+                kazVolunteer: 'KazVolunteer'
+            },
+            kz: {
+                home: 'Басты бет',
+                whyVolunteer: 'Неліктен ерікті болу керек',
+                regions: 'Аймақтар',
+                projects: 'Жобалар',
+                apply: 'Өтінім беру',
+                contact: 'Байланыстар',
+                heroTitle: 'Әлемді таңғажайып ету үшін бізге қосылыңыз',
+                heroSubtitle: 'Пікірлес адамдармен байланысыңыз, жаңа жерлерді ашыңыз және Қазақстанның барлық аумағындағы қауымдастықтар үшін жарқын болашақ құруға көмектесіңіз.',
+                findProjects: 'Жобаларды табу',
+                applyBtn: 'Өтінім беру',
+                whyVolunteerHeading: 'Неліктен бізбен ерікті болу керек?',
+                gainExperienceTitle: 'Тәжірибе алу',
+                gainExperienceText: 'Маңызды жұмысқа үлес қоса отырып, құнды дағдыларға ие болыңыз және кәсіби портфолиоңызды құрыңыз.',
+                helpCommunitiesTitle: 'Қауымдастықтарға көмек',
+                helpCommunitiesText: 'Әлеуметтік, экологиялық және мәдени қажеттіліктерді шешу арқылы адамдардың өміріне нақты әсер етіңіз.',
+                culturalExchangeTitle: 'Мәдени алмасу',
+                culturalExchangeText: 'Қазақ мәдениетіне еніңіз, жергілікті әдет-ғұрыптарды үйреніңіз және өз дәстүрлеріңізбен бөлісіңіз.',
+                buildNetworkTitle: 'Желі құру',
+                buildNetworkText: 'Басқа еріктілермен және жергілікті жетекшілермен танысып, өмір бойы достық және кәсіби байланыстар орнатыңыз.',
+                discoverRegionsHeading: 'Аймақтарды ашыңыз',
+                akmolaTitle: 'Ақмола',
+                akmolaText: 'Оның керемет табиғи сұлулығы үшін "Қазақ Швейцариясы" ретінде белгілі, оның ішінде көлдер мен таулар бар.',
+                almatyTitle: 'Алматы',
+                almatyText: 'Керемет Іле Алатауы тауларымен қоршалған қарқынды мәдени және коммерциялық орталық.',
+                astanaTitle: 'Астана',
+                astanaText: 'Қазақстанның футуристік астанасы, өзінің бірегей, заманауи сәулетімен және жарқын қалалық өмірімен танымал.',
+                eastKzTitle: 'Шығыс Қазақстан',
+                eastKzText: 'Керемет пейзаждар мен қол тимеген табиғатты ұсынатын ұлы Алтай тауларының отаны.',
+                southKzTitle: 'Оңтүстік Қазақстан',
+                southKzText: 'Тарихқа, ежелгі қалаларға және жылы, қонақжай қауымдастықтарға бай аймақ.',
+                westKzTitle: 'Батыс Қазақстан',
+                westKzText: 'Кең шөлдердің бірегей ландшафты және Каспий теңізіндегі стратегиялық орналасуы.',
+                featuredProjectsHeading: 'Таңдаулы жобалар',
+                all: 'Барлығы',
+                ecology: 'Экология',
+                education: 'Білім',
+                social: 'Әлеуметтік',
+                cultural: 'Мәдени',
+                allRegions: 'Барлық аймақтар',
+                allDurations: 'Барлық ұзақтығы',
+                shortDuration: 'Қысқа <1 апта',
+                mediumDuration: '1-4 апта',
+                longDuration: '1+ ай',
+                akmolaProjectTitle: 'Бурабай ұлттық паркін тазалау',
+                akmolaProjectDesc: 'Тазалау жұмыстарына және соқпақтарды күтуге көмектесу арқылы Қазақстанның ең танымал ұлттық саябақтарының бірінің табиғи сұлулығын сақтауға көмектесіңіз.',
+                cleanMountainsTitle: '«Таза таулар» жобасы',
+                cleanMountainsDesc: 'Тау соқпақтарын тазалау және табиғаттың таза сұлулығын сақтау үшін демалыс күндері бізге қосылыңыз.',
+                mentoringTitle: 'Болашақ көшбасшыларға тәлімгерлік',
+                mentoringDesc: 'Алыс аудандардағы жас оқушыларға үй тапсырмасы мен мансаптық дамуына көмектесіп, келесі ұрпақты шабыттандырыңыз.',
+                kitchenTitle: 'Қоғамдық асхананы қолдау',
+                kitchenDesc: 'Қаладағы мұқтаж жандарға көмектесу үшін жергілікті асханаларда ыстық тамақ беріңіз және көмек көрсетіңіз.',
+                festivalTitle: 'Өнер және мұра фестивалі',
+                festivalDesc: 'Қазақ мұрасына арналған бір апталық мәдени фестиваль кезінде іс-шараны ұйымдастыруға және туристерді бағыттауға көмектесіңіз.',
+                steppeTitle: 'Далаға ағаш отырғызу',
+                steppeDesc: 'Шөлейттенуге қарсы күресу және биоалуандылықты насихаттау үшін ұзақ мерзімді орманды қалпына келтіру жобасына қатысыңыз.',
+                englishCampTitle: 'Ағылшын тілі лагері',
+                englishCampDesc: 'Жергілікті студенттерге көңілді, интерактивті лагерь іс-шаралары арқылы ағылшын тілін жетілдіруге көмектесіңіз.',
+                elderlyCareTitle: 'Қарттарға күтім көрсету',
+                elderlyCareDesc: 'Жергілікті қарттар үйінің тұрғындарына қолдау мен көмек көрсетіңіз. Жүрек жылытатын тәжірибе.',
+                museumTitle: 'Музей экспозициясының гиді',
+                museumDesc: 'Ірі ұлттық музейдегі келушілермен қазақ артефактілерінің тарихы мен маңыздылығын бөлісіңіз.',
+                applyHeading: 'Ерікті болуға өтінім беру',
+                name: 'Аты',
+                email: 'Электрондық пошта',
+                phone: 'Телефон (міндетті емес)',
+                preferredLanguage: 'Қалаған тіл',
+                region: 'Аймақ',
+                project: 'Жоба',
+                message: 'Хабарлама',
+                sendApplication: 'Өтінімді жіберу',
+                success: 'Сәтті!',
+                applicationSubmitted: 'Сіздің өтініміңіз жіберілді. Қызығушылық танытқаныңыз үшін рахмет!',
+                aboutKazVolunteer: 'KazVolunteer туралы',
+                aboutText: 'Қазақстан бойынша ынталы еріктілерді маңызды жобалармен байланыстыру. Жақсы қауымдастық құру миссиямызға қосылыңыз.',
+                contactUs: 'Бізбен байланысыңыз',
+                emailContact: 'Электрондық пошта: KazVolunteering@gmail.com',
+                telegram: 'Телеграм:',
+                whatsapp: 'WhatsApp:',
+                copyright: '© 2024 KazVolunteer. Барлық құқықтар қорғалған.',
+                yourNamePlaceholder: 'Сіздің атыңыз',
+                emailPlaceholder: 'your.email@example.com',
+                phonePlaceholder: '+7 (XXX) XXX XX XX',
+                projectPlaceholder: 'Мысалы, «Таза таулар» жобасы',
+                messagePlaceholder: 'Өзіңіз туралы және неліктен ерікті болғыңыз келетінін айтыңыз.',
+                selectRegion: 'Аймақты таңдаңыз',
+                kazVolunteer: 'KazVolunteer'
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Update all text content based on current language
+        const updateText = () => {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (languageData[currentLang][key]) {
+                    element.textContent = languageData[currentLang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (languageData[currentLang][key]) {
+                    element.placeholder = languageData[currentLang][key];
+                }
+            });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                const category = card.getAttribute('data-category');
+                const region = card.getAttribute('data-region');
+                const duration = card.getAttribute('data-duration');
+                
+                // Update specific text inside project cards
+                const categorySpan = card.querySelector('.rounded-full');
+                if (categorySpan) {
+                    categorySpan.textContent = languageData[currentLang][category.toLowerCase()] || category;
+                }
+                
+                const regionSpan = card.querySelector('.project-region');
+                if (regionSpan) {
+                    const regionKey = region.replace(/\s/g, '').toLowerCase();
+                    regionSpan.textContent = languageData[currentLang][regionKey + 'Title'] || region;
+                }
+                
+                const durationSpan = card.querySelector('.project-duration');
+                if (durationSpan) {
+                    const durationKey = duration.replace(/[^a-zA-Z0-9]/g, '').replace(/\s/g, '').toLowerCase();
+                    durationSpan.textContent = languageData[currentLang][durationKey] || duration;
+                }
+            });
+        };
+
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Hide mobile menu when a link is clicked
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Language Switcher Logic
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentLang = btn.dataset.lang;
+                updateText();
+            });
+        });
+
+        // Initial text update
+        updateText();
+
+        // Get all elements
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const regionFilter = document.getElementById('region-filter');
+        const durationFilter = document.getElementById('duration-filter');
+        const projectCards = document.querySelectorAll('.project-card');
+        const applyButtons = document.querySelectorAll('.apply-btn');
+        const applyForm = document.getElementById('apply-form');
+        const projectInput = document.getElementById('project');
+        const successMessage = document.getElementById('success-message');
+
+        // Function to filter projects
+        const filterProjects = () => {
+            const category = document.querySelector('.filter-btn.active').dataset.filter;
+            const region = regionFilter.value;
+            const duration = durationFilter.value;
+
+            projectCards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                const cardRegion = card.dataset.region;
+                const cardDuration = card.dataset.duration;
+
+                const isCategoryMatch = category === 'all' || category === cardCategory;
+                const isRegionMatch = region === 'all' || region === cardRegion;
+                const isDurationMatch = duration === 'all' || duration === cardDuration;
+
+                if (isCategoryMatch && isRegionMatch && isDurationMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        // Add event listeners for filter buttons and dropdowns
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                filterProjects();
+            });
+        });
+
+        regionFilter.addEventListener('change', filterProjects);
+        durationFilter.addEventListener('change', filterProjects);
+
+        // Add event listeners for "Apply Now" buttons
+        applyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const projectTitle = e.target.closest('.project-card').querySelector('.project-title').textContent;
+                projectInput.value = projectTitle;
+
+                // Scroll to the application section
+                const applySection = document.getElementById('apply');
+                applySection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Handle form submission
+        applyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real application, you would send this data to a server
+            console.log('Form Submitted!');
+            
+            // Show success message
+            successMessage.classList.remove('hidden');
+
+            // Clear the form
+            applyForm.reset();
+
+            // Hide the message after a few seconds
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
